@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Angular search 3 column combinedly</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="combinedSearch.js"></script>
+</head>
+<body ng-app="myModule">
+
+<div class="container">
+  <h2>Please search by color,type or price </h2>
+  
+        <div ng-controller="myController">
+
+	  <div class="col-xs-4">
+	  <input type="text" class="form-control" placeholder="search by color, type or price" ng-model="searchText">
+	  </div>
+      <br><br>
+	   <br><br>
+	 <div class="table-responsive"> 
+    <table class="table">
+    <thead>
+          <tr class="info">
+            <th>Color </th>
+            <th>Type </th>
+            <th>Year of Construction</th>
+            <th>Price</th>
+			<th>Notes</th>
+			
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="active"  ng-repeat="car in carss | filter:search">
+            <td>{{car.color}}</td>
+            <td>{{car.type}}</td>
+            <td>{{car.yearOfConstruction}}</td>
+            <td>{{car.price}}</td>
+			<td>{{car.notes}}</td>
+          </tr>
+        </tbody>
+  </table>
+</div>
+</div>
+
+</body>
+</html>
+
